@@ -51,7 +51,6 @@ class TTVDecoderSpec extends Specification {
     def "should decode numeric byte array"() {
         given:
         TLVParser encoder = new TLVParserImpl()
-        println("!!!!!!!!!!!!!!!! vq")
 
         when:
         List<NumericTypeValue> result = encoder.decode(input as byte[])
