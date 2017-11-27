@@ -1,6 +1,5 @@
 package ge.vq.tlv
 
-import ge.vq.tlv.parser.TLVParser
 import ge.vq.tlv.parser.TLVParserImpl
 import ge.vq.tlv.structure.BlobTypeValue
 import ge.vq.tlv.structure.NumericTypeValue
@@ -9,13 +8,12 @@ import spock.lang.Specification
 
 class TTVDecoderSpec extends Specification {
 
-
     def "should decode string byte array"() {
         given:
-        def encoder = new TLVParserImpl()
+        def tlvParser = new TLVParserImpl()
 
         when:
-        List<StringTypeValue> result = encoder.decode(input as byte[])
+        List<StringTypeValue> result = tlvParser.decode(input as byte[])
 
         then:
         result.first().key == key
@@ -28,13 +26,12 @@ class TTVDecoderSpec extends Specification {
         'MTID' | 'HSFT0010' | [2, 4, 77, 84, 73, 68, 8, 0, 72, 83, 70, 84, 48, 48, 49, 48]
     }
 
-
     def "should decode unicode string byte array"() {
         given:
-        TLVParser encoder = new TLVParserImpl()
+        def tlvParser = new TLVParserImpl()
 
         when:
-        List<StringTypeValue> result = encoder.decode(input)
+        List<StringTypeValue> result = tlvParser.decode(input)
 
         then:
         result.first().key == key
@@ -44,16 +41,14 @@ class TTVDecoderSpec extends Specification {
         where:
         key    | value | input
         'MTID' | 'ა'   | [5, 4, 77, 84, 73, 68, 2, 0, -48, 16] as byte[]
-
     }
-
 
     def "should decode numeric byte array"() {
         given:
-        TLVParser encoder = new TLVParserImpl()
+        def tlvParser = new TLVParserImpl()
 
         when:
-        List<NumericTypeValue> result = encoder.decode(input as byte[])
+        List<NumericTypeValue> result = tlvParser.decode(input as byte[])
 
         then:
         result.first().key == 'MTID'
@@ -75,16 +70,14 @@ class TTVDecoderSpec extends Specification {
     def "should decode blob"() {
 
         given:
-        TLVParser encoder = new TLVParserImpl()
+        def tlvParser = new TLVParserImpl()
 
         when:
-        List<BlobTypeValue> result = encoder.decode(input as byte[])
-
+        List<BlobTypeValue> result = tlvParser.decode(input as byte[])
 
         then:
         result.first().key == key
         result.first().value == value
-
 
         where:
         key            | value                               | input

@@ -7,15 +7,18 @@ import spock.lang.Specification
 
 class TTVEncoderSpec extends Specification {
 
+    def tlvParser;
+
+    def setup(){
+        tlvParser = new TLVParserImpl()
+    }
+
     def "should parse numeric input stream correctly"() {
         given:
-        TLVAbstractData data = input
-
-        and:
-        TLVParser encoder = new TLVParserImpl()
+        def encoder = new TLVParserImpl()
 
         when:
-        byte[] result = encoder.encode(Arrays.asList(data))
+        byte[] result = encoder.encode(Arrays.asList(input))
 
         then:
         result == output
@@ -35,13 +38,10 @@ class TTVEncoderSpec extends Specification {
 
     def "should parse string type input stream correctly"() {
         given:
-        TLVAbstractData data = new StringTypeValue(key, value)
-
-        and:
-        TLVParser encoder = new TLVParserImpl()
+        TLVAbstractData input = new StringTypeValue(key, value)
 
         when:
-        byte[] result = encoder.encode(Arrays.asList(data))
+        byte[] result = tlvParser.encode(Arrays.asList(input))
 
         then:
         result == output
@@ -56,13 +56,10 @@ class TTVEncoderSpec extends Specification {
 
     def "should parse utf16 string type input stream correctly"() {
         given:
-        TLVAbstractData data = new StringTypeValue(key, value, TLVType.UNICODE_STRING)
-
-        and:
-        TLVParser encoder = new TLVParserImpl()
+        TLVAbstractData input = new StringTypeValue(key, value, TLVType.UNICODE_STRING)
 
         when:
-        byte[] result = encoder.encode(Arrays.asList(data))
+        byte[] result = tlvParser.encode(Arrays.asList(input))
 
         then:
         result == output
@@ -78,13 +75,10 @@ class TTVEncoderSpec extends Specification {
     def "should parse blob"() {
 
         given:
-        TLVAbstractData data = new BlobTypeValue(key, value as byte[], isUnicode)
-
-        and:
-        TLVParser encoder = new TLVParserImpl()
+        TLVAbstractData input = new BlobTypeValue(key, value as byte[], isUnicode)
 
         when:
-        byte[] result = encoder.encode(Arrays.asList(data))
+        byte[] result = tlvParser.encode(Arrays.asList(input))
 
         then:
         result == output
