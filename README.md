@@ -37,7 +37,7 @@ gradle build
 ```
 
 
-* if you **don't have gradle installed** in your local machine, you can use gradle wrapper to build project.
+if you **don't have gradle installed** in your local machine, you can use gradle wrapper to build project.
 
 ```bash
 ./gradlew build
