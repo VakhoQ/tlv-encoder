@@ -4,44 +4,44 @@
 
 
 ### Requirements
-Java 1.8 or Java 1.9
+* Java version 1.8 or higher 
+* maven 3.x or gradle 4.x
+
+### Build with maven
+
+In order to build project with maven you should check out **build-project-with-maven** branch.
+
+```bash
+git checkout build-project-with-maven branch
+```
+
+run the following command in order to build project:
+
+```bash
+mvn package
+```
 
 
 ### Build with gradle
 
-in order to build project with gradle you should check out **master** branch.
+In order to build project with gradle you should check out **master** branch.
 
 ```bash
-git checkout -b master origin/master
+git checkout master
 ```
 
-if **you have** gradle installed in your local machine, please run the following command:
+if **you have gradle installed** in your local machine run the following command:
 
 ```bash
 gradle build
 ```
 
 
-
-if you **don't have gradle installed** in your local machine, you can use gradle wrapper in order to build project.
+* if you **don't have gradle installed** in your local machine, you can use gradle wrapper to build project.
 
 ```bash
 ./gradlew build
 ```
-
-### Build with maven
-
-in order to build project with maven you should check out **origin/build-project-with-maven branch**
-
-```bash
-git checkout -b build-project-with-maven branch origin/build-project-with-maven branch
-```
-
-Please install maven version 3.X and run the following command:
-```bash
-mvn package
-```
-
 
 
 
