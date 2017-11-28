@@ -3,31 +3,45 @@
  TLV (tag-length-value) communication protocol implementation
 
 
-### Build with gradle
+### Requirements
+* Java version 1.8 or higher 
+* maven 3.x or gradle 4.x
 
-in order to build project with gradle you should check out master branch.
+### Build with maven
+
+In order to build project with maven you should check out **build-project-with-maven** branch.
 
 ```bash
-git checkout -b master origin/master
+git checkout build-project-with-maven branch
 ```
 
-if **you have** gradle installed in your local machine, please run the following command:
+run the following command in order to build project:
+
+```bash
+mvn package
+```
+
+
+### Build with gradle
+
+In order to build project with gradle you should check out **master** branch.
+
+```bash
+git checkout master
+```
+
+if **you have gradle installed** in your local machine run the following command:
 
 ```bash
 gradle build
 ```
 
 
-
-if you **don't have gradle installed** in your local machine, you can use gradle wrapper in order to build project.
+if you **don't have gradle installed** in your local machine, you can use gradle wrapper to build project.
 
 ```bash
 ./gradlew build
 ```
-
-
-
-
 
 
 
