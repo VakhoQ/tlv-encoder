@@ -12,7 +12,7 @@
 In order to build project with maven you should check out **build-project-with-maven** branch.
 
 ```bash
-git checkout build-project-with-maven branch
+git checkout build-project-with-maven
 ```
 
 run the following command in order to build project:
