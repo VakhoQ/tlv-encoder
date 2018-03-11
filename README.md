@@ -1,6 +1,6 @@
 
 # tlv-encoder
- TLV (tag-length-value) communication protocol implementation in Java 
+ TLV (tag-length-value) communication protocol implementation.
 
 
 ### Requirements
